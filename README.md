@@ -18,8 +18,17 @@ What is the probability of getting a red ball?
 
 
 ```python
-# Your code here
+# Heads: 4 red, 6 green -> p(red) = 4/10
+# Tails: 6 red, 4 green -> p(red) = 6/10
+# Heads or Tails = 1/2 or 0.5
+# p_Red = p_RgivH * p_H + p_RgivT * p_T
+
+p_Red = (4/10 * 0.5) + (6/10 * 0.5)
+print(p_Red)
 ```
+
+    0.5
+
 
 ## Exercise 2
 In games where at least one goal is made, a soccer team wins 60% of its games when it scores the first goal, and 10% of its games when the opposing team 
@@ -29,8 +38,21 @@ If the team scores the first goal about 30% of the time, what fraction of the ga
 
 
 ```python
-# Your code here
+# P_win_giv_score_first = 0.6
+# P_win_giv_score_second = 0.1
+# P_score_first = 0.3
+# therefore P_score_second = 1 - 0.3 = 0.7
+# P_win = ?
+p_w = (0.6 * 0.3) + (0.1 * 0.7)
+p_w
 ```
+
+
+
+
+    0.25
+
+
 
 ## Exercise 3
 
@@ -54,8 +76,53 @@ Hint: Consult the theorems for conditional probability, check for dependence or 
 
 
 ```python
-# Your code here
+G1 = 0.4 # Diesel
+G2 = 0.35 # Super95
+G3 = 0.25 # Super98
+F1 = 0.3 # Diesel, FullTank
+F2 = 0.6 # 95 FullTank
+F3 = 0.5 # 98 FullTank
+
+# Full Tank and Super 95
+P_G2_F2 = G2*F2
+P_G2_F2
 ```
+
+
+
+
+    0.21
+
+
+
+
+```python
+P_G1_F1 = G1*F1
+P_G3_F3 = G3*F3
+
+P_Full_Any = P_G1_F1+P_G2_F2+P_G3_F3
+P_Full_Any
+```
+
+
+
+
+    0.45499999999999996
+
+
+
+
+```python
+P_G1_giv_F1 = (G1*F1)/P_Full_Any
+P_G1_giv_F1
+```
+
+
+
+
+    0.26373626373626374
+
+
 
 ## Exercise 4
 
@@ -67,8 +134,49 @@ United Airlines operates flights from JFK to Amsterdam, to Brussels, and to Cope
 
 
 ```python
-# Your code here
+p_Am = 0.40
+p_Br = 0.25
+p_Co = 0.35
+p_all = p_Am*p_Br*p_Co
+p_all
 ```
+
+
+
+
+    0.034999999999999996
+
+
+
+
+```python
+p_1notOB = 1 - p_all
+p_1notOB
+```
+
+
+
+
+    0.965
+
+
+
+
+```python
+p_Am1 = p_Am * (1-p_Br) * (1-p_Co)
+p_Br1 = p_Br * (1-p_Am) * (1-p_Co)
+p_Co1 = p_Co * (1-p_Am) * (1-p_Br)
+
+p_1OB = p_Am1 + p_Br1 + p_Co1
+p_1OB
+```
+
+
+
+
+    0.45000000000000007
+
+
 
 ## Exercise 5
 You have three bags that each contain 100 marbles:
@@ -84,8 +192,20 @@ What is the probability that the chosen marble is red?
 
 
 ```python
-# Your code here
+B1 = .75
+B2 = .60
+B3 = .45
+pBag = 1/3 
+p_red = (B1*pBag)+(B2*pBag)+(B3*pBag)
+p_red
 ```
+
+
+
+
+    0.6
+
+
 
 ## Summary 
 
